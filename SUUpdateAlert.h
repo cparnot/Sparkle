@@ -11,6 +11,7 @@
 
 #import "SUWindowController.h"
 #import "SUVersionDisplayProtocol.h"
+#import <WebKit/WebKit.h>
 
 
 typedef enum
@@ -21,8 +22,8 @@ typedef enum
 	SUOpenInfoURLChoice
 } SUUpdateAlertChoice;
 
-@class WebView, SUAppcastItem, SUHost;
-@interface SUUpdateAlert : SUWindowController {
+@class SUAppcastItem, SUHost;
+@interface SUUpdateAlert : SUWindowController <WebFrameLoadDelegate, WebPolicyDelegate>{
 	SUAppcastItem *updateItem;
 	SUHost *host;
 	id delegate;
